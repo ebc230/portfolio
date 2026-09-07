@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Emma Carothers — a portfolio of thoughtful creative work and digital experiences." />
+  <title>Emma Carothers — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #13231d;
+      --muted: #68736e;
+      --paper: #f2f2ec;
+      --cream: #f9f9f4;
+      --line: #d9ddd5;
+      --lime: #d6f264;
+      --orange: #ff6b35;
+      --black: #111714;
+      --mono: "DM Mono", monospace;
+      --sans: "Manrope", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow { color: var(--muted); font: 500 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .site-header { padding: 28px 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 800; font-size: 19px; letter-spacing: -.06em; }
+    .brand-mark { display: inline-block; width: 9px; height: 9px; margin-right: 7px; border-radius: 50%; background: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta { padding: 11px 17px; color: var(--cream) !important; border-radius: 2px; background: var(--black); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 75px; align-items: end; min-height: 555px; padding: 84px 0 90px; }
+    .hero h1 { max-width: 760px; margin: 17px 0 28px; font-size: clamp(54px, 8vw, 112px); line-height: .93; letter-spacing: -.09em; font-weight: 800; }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero-intro { max-width: 440px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
+    .hero-aside { padding-bottom: 11px; }
+    .status { display: flex; align-items: center; gap: 9px; margin-bottom: 26px; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #56aa68; box-shadow: 0 0 0 5px rgba(86,170,104,.14); }
+    .portrait { position: relative; overflow: hidden; aspect-ratio: 1 / 1.08; background: var(--lime); }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.1); }
+    .portrait-label { position: absolute; right: 14px; bottom: 14px; padding: 8px 10px; color: var(--cream); background: var(--black); font: 500 10px var(--mono); text-transform: uppercase; }
+    .scroll-note { display: flex; align-items: center; gap: 11px; margin-top: 22px; color: var(--muted); font: 500 10px var(--mono); text-transform: uppercase; }
+    .scroll-line { width: 42px; height: 1px; background: var(--orange); }
+    .section { padding: 115px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 45px; }
+    .section-title { margin: 0; font-size: clamp(32px, 5vw, 58px); letter-spacing: -.07em; line-height: 1; }
+    .work-list { border-top: 1px solid var(--line); }
+    .project { display: grid; grid-template-columns: 80px 1fr 220px 40px; gap: 25px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); transition: padding .25s ease, background .25s ease; }
+    .project:hover { padding-left: 16px; background: var(--lime); }
+    .project-number { color: var(--orange); font: 500 12px var(--mono); }
+    .project-name { margin: 0 0 8px; font-size: 24px; letter-spacing: -.05em; }
+    .project-desc { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .project-type { justify-self: end; color: var(--muted); font: 500 11px var(--mono); text-align: right; text-transform: uppercase; }
+    .arrow { justify-self: end; font-size: 25px; transform: rotate(-45deg); transition: transform .25s ease; }
+    .project:hover .arrow { transform: rotate(0); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+    .about-copy { max-width: 610px; font-size: 26px; line-height: 1.25; letter-spacing: -.05em; }
+    .about-copy strong { color: var(--orange); font-weight: 600; }
+    .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 35px; margin-top: 0; border-top: 1px solid var(--line); }
+    .skill { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .skill span { display: block; margin-bottom: 4px; color: var(--muted); font: 500 10px var(--mono); }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .service { min-height: 220px; padding: 24px 25px 24px 0; border-right: 1px solid var(--line); }
+    .service + .service { padding-left: 25px; }
+    .service:last-child { border-right: 0; }
+    .service-num { color: var(--orange); font: 500 11px var(--mono); }
+    .service h3 { margin: 60px 0 12px; font-size: 20px; letter-spacing: -.04em; }
+    .service p { max-width: 240px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: 125px; }
+    .contact h2 { max-width: 580px; margin: 18px 0 0; font-size: clamp(45px, 7vw, 85px); line-height: .92; letter-spacing: -.09em; }
+    .contact h2 span { color: var(--orange); }
+    .contact-side { justify-self: end; max-width: 310px; }
+    .contact-side p { color: var(--muted); font-size: 15px; line-height: 1.5; }
+    .email { display: inline-flex; align-items: center; gap: 13px; margin-top: 20px; padding: 14px 18px; color: var(--cream); background: var(--black); font-size: 13px; font-weight: 700; }
+    .email:hover { background: var(--orange); }
+    footer { display: flex; justify-content: space-between; padding: 22px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font: 500 10px var(--mono); text-transform: uppercase; }
+    .reveal { opacity: 0; transform: translateY(20px); animation: reveal .75s ease forwards; }
+    .reveal.delay-1 { animation-delay: .12s; } .reveal.delay-2 { animation-delay: .22s; } .reveal.delay-3 { animation-delay: .32s; }
+    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 32px, 600px); }
+      .site-header { padding: 22px 0; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 42px; min-height: auto; padding: 70px 0 80px; }
+      .hero h1 { font-size: clamp(54px, 16vw, 90px); }
+      .hero-intro { font-size: 16px; }
+      .hero-aside { max-width: 330px; }
+      .section { padding: 75px 0; }
+      .section-head { margin-bottom: 28px; }
+      .project { grid-template-columns: 35px 1fr 25px; gap: 13px; padding: 22px 0; }
+      .project-type { display: none; }
+      .project-name { font-size: 19px; }
+      .project-desc { font-size: 12px; }
+      .about-grid, .contact { grid-template-columns: 1fr; gap: 42px; }
+      .about-copy { font-size: 23px; }
+      .services { grid-template-columns: 1fr; }
+      .service, .service + .service { min-height: auto; padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .service h3 { margin: 30px 0 8px; }
+      .contact { padding-bottom: 80px; }
+      .contact-side { justify-self: start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { animation: none; opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top"><span class="brand-mark"></span>EMMA CAROTHERS</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a class="nav-cta" href="https://www.linkedin.com/in/emma-carothers-88b876373" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <p class="eyebrow reveal">Independent designer / developer</p>
+        <h1 class="reveal delay-1">Ideas into <em>useful</em> things.</h1>
+        <p class="hero-intro reveal delay-2">I’m Emma, a thoughtful creative professional building work that feels clear, considered, and a little unexpected.</p>
+        <div class="scroll-note reveal delay-3"><span class="scroll-line"></span> Selected work below</div>
+      </div>
+      <aside class="hero-aside reveal delay-2">
+        <div class="status"><span class="status-dot"></span> Available for select projects</div>
+        <div class="portrait"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=85" alt="Portrait placeholder for Emma Carothers" /><span class="portrait-label">Emma Carothers</span></div>
+      </aside>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">01 / Selected work</p><p class="eyebrow">2022—2025</p></div>
+        <div class="work-list">
+          <a class="project" href="#contact"><span class="project-number">01</span><div><h2 class="project-name">Arc — Financial clarity, redesigned</h2><p class="project-desc">A calmer way for independent teams to understand their money.</p></div><span class="project-type">Product / UX / 2025</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="project" href="#contact"><span class="project-number">02</span><div><h2 class="project-name">Morrow — Make time for making</h2><p class="project-desc">Brand and digital experience for a new kind of creative retreat.</p></div><span class="project-type">Brand / Web / 2024</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="project" href="#contact"><span class="project-number">03</span><div><h2 class="project-name">Field Notes — Outside, online</h2><p class="project-desc">A living editorial platform for people who go looking.</p></div><span class="project-type">Editorial / Build / 2023</span><span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">02 / A bit about me</p></div>
+        <div class="about-grid">
+          <p class="about-copy">Good work starts with <strong>good questions.</strong> I work across strategy, design, and code to turn fuzzy problems into digital products people actually want to use.</p>
+          <div class="skill-list"><div class="skill"><span>01</span>Product strategy</div><div class="skill"><span>02</span>Visual direction</div><div class="skill"><span>03</span>UX / UI design</div><div class="skill"><span>04</span>Creative development</div><div class="skill"><span>05</span>Design systems</div><div class="skill"><span>06</span>Prototyping</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">03 / What I do</p></div>
+        <div class="services"><div class="service"><span class="service-num">01</span><h3>Find the signal</h3><p>Research, strategy, and a clear point of view when the path forward is fuzzy.</p></div><div class="service"><span class="service-num">02</span><h3>Make it make sense</h3><p>Identity and interface systems that bring meaning, momentum, and consistency.</p></div><div class="service"><span class="service-num">03</span><h3>Bring it to life</h3><p>Thoughtful, high-fidelity builds that turn a good idea into a real experience.</p></div></div>
+      </div>
+    </section>
+
+    <section class="container contact" id="contact">
+      <div><p class="eyebrow">Have a good one?</p><h2>Let’s make<br />something <span>real.</span></h2></div>
+      <div class="contact-side"><p>I’m always interested in thoughtful collaborations, ambitious products, and conversations about the work.</p><a class="email" href="https://www.linkedin.com/in/emma-carothers-88b876373" target="_blank" rel="noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer class="container"><span>© 2025 Emma Carothers</span><span>Designed + built with intent</span></footer>
+</body>
+</html>
