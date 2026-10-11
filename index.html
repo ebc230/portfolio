@@ -10,14 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #13231d;
-      --muted: #68736e;
-      --paper: #f2f2ec;
-      --cream: #f9f9f4;
-      --line: #d9ddd5;
-      --lime: #d6f264;
-      --orange: #ff6b35;
-      --black: #111714;
+      --ink: #23263b;
+      --muted: #5f647f;
+      --paper: #f5f1fb;
+      --cream: #fdfbff;
+      --line: #e3dff2;
+      --lime: #e5defd;
+      --orange: #d8d0ff;
+      --black: #23263b;
       --mono: "DM Mono", monospace;
       --sans: "Manrope", sans-serif;
     }
@@ -37,15 +37,13 @@
     .nav-links a { transition: color .2s ease; }
     .nav-links a:hover { color: var(--orange); }
     .nav-cta { padding: 11px 17px; color: var(--cream) !important; border-radius: 2px; background: var(--black); }
-    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 75px; align-items: end; min-height: 555px; padding: 84px 0 90px; }
-    .hero h1 { max-width: 760px; margin: 17px 0 28px; font-size: clamp(54px, 8vw, 112px); line-height: .93; letter-spacing: -.09em; font-weight: 800; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 390px; gap: 52px; align-items: end; min-height: 500px; padding: 72px 0 80px; }
+    .hero h1 { max-width: 760px; margin: 0 0 22px; font-size: clamp(54px, 8vw, 112px); line-height: .93; letter-spacing: -.09em; font-weight: 800; }
     .hero h1 em { color: var(--orange); font-style: normal; }
     .hero-intro { max-width: 440px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
-    .hero-aside { padding-bottom: 11px; }
-    .status { display: flex; align-items: center; gap: 9px; margin-bottom: 26px; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
-    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #56aa68; box-shadow: 0 0 0 5px rgba(86,170,104,.14); }
-    .portrait { position: relative; overflow: hidden; aspect-ratio: 1 / 1.08; background: var(--lime); }
-    .portrait img { width: 100%; height: 100%; object-fit: cover; filter: none; mix-blend-mode: normal; }
+    .hero-aside { display: flex; justify-content: center; align-items: flex-end; padding-bottom: 8px; }
+    .portrait { position: relative; overflow: hidden; width: 100%; max-width: 390px; aspect-ratio: 4 / 5; background: var(--lime); margin-top: 18px; border-radius: 10px; }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(0.95) contrast(1.02); mix-blend-mode: normal; }
     .portrait-label { position: absolute; right: 14px; bottom: 14px; padding: 8px 10px; color: var(--cream); background: var(--black); font: 500 10px var(--mono); text-transform: uppercase; }
     .scroll-note { display: flex; align-items: center; gap: 11px; margin-top: 22px; color: var(--muted); font: 500 10px var(--mono); text-transform: uppercase; }
     .scroll-line { width: 42px; height: 1px; background: var(--orange); }
@@ -61,11 +59,11 @@
     .project-type { justify-self: end; color: var(--muted); font: 500 11px var(--mono); text-align: right; text-transform: uppercase; }
     .arrow { justify-self: end; font-size: 25px; transform: rotate(-45deg); transition: transform .25s ease; }
     .project:hover .arrow { transform: rotate(0); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
-    .about-copy { max-width: 610px; font-size: 26px; line-height: 1.25; letter-spacing: -.05em; }
+    .about-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr); gap: 40px; align-items: center; }
+    .about-copy { max-width: 610px; margin: 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -.05em; }
     .about-copy strong { color: var(--orange); font-weight: 600; }
-    .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 35px; margin-top: 0; border-top: 1px solid var(--line); }
-    .skill { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .skill-list { display: grid; grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 0 18px; margin-top: 0; border-top: 1px solid var(--line); }
+    .skill { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
     .skill span { display: block; margin-bottom: 4px; color: var(--muted); font: 500 10px var(--mono); }
     .services { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
     .service { min-height: 220px; padding: 24px 25px 24px 0; border-right: 1px solid var(--line); }
@@ -74,6 +72,13 @@
     .service-num { color: var(--orange); font: 500 11px var(--mono); }
     .service h3 { margin: 60px 0 12px; font-size: 20px; letter-spacing: -.04em; }
     .service p { max-width: 240px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+    .mini-card { padding: 22px 24px; border: 1px solid var(--line); background: rgba(255,255,255,.18); }
+    .mini-card h3 { margin: 0 0 10px; font-size: 18px; letter-spacing: -.04em; }
+    .mini-card p, .mini-card li { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .mini-card ul { margin: 0; padding-left: 18px; }
+    .link-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+    .link-pill { display: inline-block; padding: 10px 14px; border: 1px solid var(--line); background: var(--cream); font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
     .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: 125px; }
     .contact h2 { max-width: 580px; margin: 18px 0 0; font-size: clamp(45px, 7vw, 85px); line-height: .92; letter-spacing: -.09em; }
     .contact h2 span { color: var(--orange); }
@@ -115,7 +120,7 @@
     <div class="container nav">
       <a class="brand" href="#top"><span class="brand-mark"></span>EMMA CAROTHERS</a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a class="nav-cta" href="https://www.linkedin.com/in/emma-carothers-88b876373" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#interests">Interests</a><a href="#links">Links</a><a class="nav-cta" href="https://www.linkedin.com/in/emma-carothers-88b876373" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
@@ -123,51 +128,99 @@
   <main id="top">
     <section class="container hero">
       <div>
-        <p class="eyebrow reveal">Independent designer / developer</p>
-        <h1 class="reveal delay-1">Ideas into <em>useful</em> things.</h1>
-        <p class="hero-intro reveal delay-2">I’m Emma, a thoughtful creative professional building work that feels clear, considered, and a little unexpected.</p>
-        <div class="scroll-note reveal delay-3"><span class="scroll-line"></span> Selected work below</div>
+        <h1 class="reveal delay-1">Learning, <em>building</em>, creating.</h1>
+        <p class="hero-intro reveal delay-2">I’m Emma, an undergraduate engineering student at Lehigh University (Bethlehem, PA). I'm apart of the class of 2030 in the P.C. Rossing College of Engineering and Applied Science and currently undeclared.</p>
+        <div class="scroll-note reveal delay-3"><span class="scroll-line"></span> Projects below</div>
       </div>
       <aside class="hero-aside reveal delay-2">
-        <div class="status"><span class="status-dot"></span> Available for select projects</div>
-        <div class="portrait"><img src="https://dear-aqua-6szccrgy.edgeone.dev/file.png" alt="Emma Carothers portrait" /><span class="portrait-label">Emma Carothers</span></div>
+        <div class="portrait"><img src="https://plain-enam-prod-public.komododecks.com/202610/11/Azlqsny80MSvc8tuS306/image.jpg" alt="Emma Carothers portrait" /><span class="portrait-label">Emma Carothers</span></div>
       </aside>
     </section>
 
     <section class="section" id="work">
       <div class="container">
-        <div class="section-head"><p class="eyebrow">01 / Selected work</p><p class="eyebrow">2022—2025</p></div>
+        <div class="section-head"><p class="eyebrow">01 / Projects</p><p class="eyebrow">2026</p></div>
         <div class="work-list">
-          <a class="project" href="#contact"><span class="project-number">01</span><div><h2 class="project-name">Arc — Financial clarity, redesigned</h2><p class="project-desc">A calmer way for independent teams to understand their money.</p></div><span class="project-type">Product / UX / 2025</span><span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="project" href="#contact"><span class="project-number">02</span><div><h2 class="project-name">Morrow — Make time for making</h2><p class="project-desc">Brand and digital experience for a new kind of creative retreat.</p></div><span class="project-type">Brand / Web / 2024</span><span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="project" href="#contact"><span class="project-number">03</span><div><h2 class="project-name">Field Notes — Outside, online</h2><p class="project-desc">A living editorial platform for people who go looking.</p></div><span class="project-type">Editorial / Build / 2023</span><span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="project" href="https://github.com/ebc230/FYRE--Assignments" target="_blank" rel="noreferrer"><span class="project-number">04</span><div><h2 class="project-name">FYRE — Assignments</h2><p class="project-desc">Repository for FYRE course assignments and creative explorations.</p></div><span class="project-type">Repo / Course / 2025</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="project" href="https://github.com/ebc230/FYRE--Assignments" target="_blank" rel="noreferrer"><span class="project-number">01</span><div><h2 class="project-name">FYRE — Sensing the World Module</h2><p class="project-desc">A collection of explorations, design exercises, and engineering assignments shaped through the pilot First Year Rossing Engineering (FYRE) program.</p></div><span class="project-type">Lehigh University / 2026</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="project" href="https://github.com/ebc230/Coding-Projects" target="_blank" rel="noreferrer"><span class="project-number">02</span><div><h2 class="project-name">Coding Projects</h2><p class="project-desc">A collection of coding projects and assignments from my App Dev class, along with additional experiments I’ve built while exploring software development.</p></div><span class="project-type">JavaScript / Personal</span><span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="container">
-        <div class="section-head"><p class="eyebrow">02 / A bit about me</p></div>
+        <div class="section-head"><p class="eyebrow">02 / About</p></div>
         <div class="about-grid">
-          <p class="about-copy">Good work starts with <strong>good questions.</strong> I work across strategy, design, and code to turn fuzzy problems into digital products people actually want to use.</p>
-          <div class="skill-list"><div class="skill"><span>01</span>Product strategy</div><div class="skill"><span>02</span>Visual direction</div><div class="skill"><span>03</span>UX / UI design</div><div class="skill"><span>04</span>Creative development</div><div class="skill"><span>05</span>Design systems</div><div class="skill"><span>06</span>Prototyping</div></div>
+          <p class="about-copy">I’m a first-year engineering student with a strong interest in technology, problem solving, and creating work that has a real purpose. I’ve been coding for years and enjoy exploring how software, design, and creativity come together to build meaningful experiences.</p>
+          <div class="skill-list"><div class="skill"><span>01</span>Python</div><div class="skill"><span>02</span>Java</div><div class="skill"><span>03</span>JavaScript</div><div class="skill"><span>04</span>Creative problem solving</div><div class="skill"><span>05</span>Technology & systems</div><div class="skill"><span>06</span>Teamwork & communication</div></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section" id="experience">
       <div class="container">
-        <div class="section-head"><p class="eyebrow">03 / What I do</p></div>
-        <div class="services"><div class="service"><span class="service-num">01</span><h3>Find the signal</h3><p>Research, strategy, and a clear point of view when the path forward is fuzzy.</p></div><div class="service"><span class="service-num">02</span><h3>Make it make sense</h3><p>Identity and interface systems that bring meaning, momentum, and consistency.</p></div><div class="service"><span class="service-num">03</span><h3>Bring it to life</h3><p>Thoughtful, high-fidelity builds that turn a good idea into a real experience.</p></div></div>
+        <div class="section-head"><p class="eyebrow">03 / Experience</p></div>
+        <div class="services">
+          <div class="service"><span class="service-num">01</span><h3>Beanbury</h3><p>Barista and customer service work in Succasunna, NJ, where I’ve developed reliability, communication, and a strong sense of responsibility in a team environment.</p></div>
+          <div class="service"><span class="service-num">02</span><h3>Cybersecurity Competition</h3><p>Placed 9th in the state in a cybersecurity competition, which sharpened my problem-solving skills and deepened my interest in technology and systems.</p></div>
+          <div class="service"><span class="service-num">03</span><h3>Performing Arts</h3><p>Participation in school productions has helped me build confidence, collaboration, and creative communication beyond the classroom.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="interests">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">04 / Interests</p></div>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <h3>Technology</h3>
+            <p>I enjoy learning how software can solve real problems, from web development to systems thinking and practical design and as well as security concerns.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Creative work</h3>
+            <p>I’m also drawn to theater and performance, where storytelling, teamwork, and communication come together in a very human way.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Leadership</h3>
+            <p>I spent three years in the Computer Science Honor Society, serving as president and helping bring technology-focused initiatives to my community. I also held leadership roles in Drama Club. At Lehigh, I’m continuing that involvement as a Women in Computer Science (WiCS) Underclassmen Representative.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Problem solving</h3>
+            <p>I’m motivated by hands-on challenges that require patience, curiosity, and creative thinking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">05 / Links</p></div>
+        <div class="mini-card">
+          <h3>Connect and explore</h3>
+          <div class="link-list">
+            <a class="link-pill" href="https://www.linkedin.com/in/emma-carothers-88b876373" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="link-pill" href="https://github.com/ebc230" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="link-pill" href="mailto:emma.carother@gmail.com">Email</a>
+            <a class="link-pill" href="#">Resume</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="container contact" id="contact">
-      <div><p class="eyebrow">Have a good one?</p><h2>Let’s make<br />something <span>real.</span></h2></div>
-      <div class="contact-side"><p>I’m always interested in thoughtful collaborations, ambitious products, and conversations about the work.</p><a class="email" href="https://www.linkedin.com/in/emma-carothers-88b876373" target="_blank" rel="noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></div>
+      <div>
+        <p class="eyebrow">Resume</p>
+        <h2>Available for<br />internships and <span>opportunities.</span></h2>
+      </div>
+      <div class="contact-side">
+        <p>Freshman engineering student seeking growth, practical experience, and opportunities to learn in collaborative environments.</p>
+        <a class="email" href="mailto:emma.carother@gmail.com">emma.carother@gmail.com <span aria-hidden="true">↗</span></a>
+        <div style="margin-top: 16px;">
+          <a class="email" href="#" aria-label="Download resume">Download Resume <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="container"><span>© 2025 Emma Carothers</span><span>Designed + built with intent</span></footer>
+  <footer class="container"><span>© 2026 Emma Carothers</span><span>Designed + built with intent</span></footer>
 </body>
 </html>
